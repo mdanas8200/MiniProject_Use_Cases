@@ -91,6 +91,11 @@ IllegalArgumentException
 
 ## Outputs
 
+<img width="1073" height="706" alt="image" src="https://github.com/user-attachments/assets/e7fcc27c-b48c-477d-9d2b-88dd63081118" />
+
+---
+<img width="1253" height="671" alt="image" src="https://github.com/user-attachments/assets/7daa2250-4b24-4816-be55-86d6515948c4" />
+
 
 ---
 
