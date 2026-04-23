@@ -67,7 +67,11 @@ PYTHON/
 ---
 
 ## Outputs
+<img width="1490" height="168" alt="image" src="https://github.com/user-attachments/assets/9d3a7678-b5eb-4e78-a4b4-d3fae54dadda" />
 
+---
+
+<img width="448" height="166" alt="image" src="https://github.com/user-attachments/assets/6c27d7c7-9264-4b86-bc4b-7c74bcc16b25" />
 
 ---
 
