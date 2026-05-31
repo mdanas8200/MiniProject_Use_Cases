@@ -50,6 +50,25 @@ Removes issue records of students who have not borrowed books in the last 3 year
 
 ## Output
 
+<img width="783" height="160" alt="image" src="https://github.com/user-attachments/assets/025c59c8-9e54-42fe-bee4-3e6707df80c0" />
+
+---
+<img width="765" height="171" alt="image" src="https://github.com/user-attachments/assets/6aae8cb6-ea1c-476a-9f4d-7018b4dd635c" />
+
+---
+<img width="770" height="201" alt="image" src="https://github.com/user-attachments/assets/107c6d96-eae5-4bbb-8bd3-3b0c8c888eb6" />
+
+---
+<img width="733" height="123" alt="image" src="https://github.com/user-attachments/assets/e11385f5-a0dc-460b-937b-1e43b75efb90" />
+
+---
+<img width="375" height="113" alt="image" src="https://github.com/user-attachments/assets/02f1e642-818d-4c70-af53-1a216ac4ac4d" />
+
+---
+<img width="700" height="167" alt="image" src="https://github.com/user-attachments/assets/d9865747-f4d0-4685-a218-782362d7068f" />
+
+---
+
 ## SQL Concepts Used
 
 * Database & Table Creation
