@@ -1,38 +1,37 @@
-posts = {
-    "anas": [
-        "I hate this link http://yahoo.com",
-        "toxic words here present in this http://facebook.com"
-    ],
-    "nethra": [
-        "This is bad content"
-    ]
-}
-bannedWords=["bad", "toxic", "hate"]
-cleanedPosts=[]
-links=[]
-flag={}
-cleaned=0
-total=sum(len(v) for v in posts.values())
+posts = [
+    ("anas", "I hate this link http://yahoo.com"),
+    ("anas", "toxic words here present in this http://facebook.com"),
+    ("nethra", "This is bad content")
+]
+bannedWords = {"bad", "toxic", "hate"}
+total = len(posts)
+flags = {}
+cleaned = 0
+links = []
+result = []
 
-for user, messages in posts.items():
-    flag[user]=0
-    for text in messages:
-        for word in bannedWords:
-            if word in text:
-                text = text.replace(word, len(word)*"*")
-                flag[user] += 1
-        for word in text.split():
-            if word.startswith("http"):
+for user, text in posts:
+    flags.setdefault(user, 0)
+    words = text.split()
+    newWords = []
+    for word in words:
+        lower = word.lower()
+        if lower in bannedWords:
+            newWords.append("*" * len(word))
+            flags[user] += 1
+        else:
+            if lower.startswith("http"):
                 links.append(word)
-        if "***" in text:
-            cleaned += 1
-        cleanedPosts.append(user + ":" + text)
+            newWords.append(word)
+    censored = " ".join(newWords)
+    if flags[user]:
+        cleaned += 1
+    result.append(f"{user}:{censored}")
 
 with open("links.txt", "w") as f:
-    for link in links:
-        f.write(link+"\n")
+    f.write("\n".join(links))
 
 print("Total Posts:", total)
 print("Cleaned:", cleaned)
-print(cleanedPosts)
-print("Toatl Flags:", flag)
+print(result)
+print("Total Flags:", flags)

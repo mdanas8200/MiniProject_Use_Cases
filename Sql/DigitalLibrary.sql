@@ -1,8 +1,6 @@
--- Database creation
 create database librarydb;
 use librarydb;
 
--- Table Creation
 CREATE TABLE books (bookingid INT PRIMARY KEY auto_increment,
 					title varchar(100),
                     author varchar(30),
@@ -21,7 +19,6 @@ CREATE TABLE issuedBooks (issuedid INT PRIMARY KEY auto_increment,
 					foreign key (bookingid) references books(bookingid),
                     foreign key (studentid) references students(studentid));
                     
--- DATA INSERTION
 INSERT INTO Books(title, author, category) VALUES
 ('One Peice', 'Echiro Oda', 'Adventure'),
 ('Bleach', 'Kubo', 'Fiction'),
@@ -40,7 +37,7 @@ INSERT INTO IssuedBooks (bookingid, studentid, issuedDate, returnDate) VALUES
 (1, 1, CURRENT_DATE - INTERVAL 5 DAY, NULL),   
 (2, 4, CURRENT_DATE - INTERVAL 50 DAY, NULL); 
 
--- OVERDUE Books more than 14 days
+-- Overdue Books more than 14 days
 SELECT 
     s.studentid,
     s.studentName,
@@ -53,7 +50,7 @@ JOIN Books b ON i.bookingid = b.bookingid
 WHERE i.returnDate IS NULL
 AND i.issuedDate < CURRENT_DATE - INTERVAL 14 DAY;
 
--- Popularity
+-- Most Borrowed Books
 SELECT 
     b.category,
     COUNT(i.issuedid) AS totalBooks
@@ -67,16 +64,16 @@ INSERT INTO IssuedBooks (bookingid, studentid, issuedDate, returnDate) VALUES
 (2, 4, CURRENT_DATE - INTERVAL 4 YEAR, NULL);
 
 
--- CLeanUp
+-- CLeanup Not Borrowed last 3 years
 SET SQL_SAFE_UPDATES = 0;
 
-DELETE i
-FROM IssuedBooks i
-LEFT JOIN (
-    SELECT DISTINCT studentid
-    FROM IssuedBooks
-    WHERE issuedDate >= CURRENT_DATE - INTERVAL 3 YEAR
-) recent
-ON i.studentid = recent.studentid
-WHERE recent.studentid IS NULL;
+DELETE FROM IssuedBooks
+WHERE studentid NOT IN (
+    SELECT studentid
+    FROM (
+        SELECT DISTINCT studentid
+        FROM IssuedBooks
+        WHERE issuedDate >= CURRENT_DATE - INTERVAL 3 YEAR
+    ) recent
+);
 
