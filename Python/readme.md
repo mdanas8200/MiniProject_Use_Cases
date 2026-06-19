@@ -38,10 +38,10 @@ PYTHON/
 
 ## How It Works
 
-1. Posts are stored in a dictionary where:
+1. Posts are stored in a tuple where:
 
-   * Key is username
-   * Value is list of posts
+   * Index 0 is username
+   * Index 1 is the list of posts
 
 2. Each post is processed:
 
@@ -103,7 +103,7 @@ python SocialMediaSanitizer.py
 
 ## Concepts Used
 
-* Dictionary
+* Tuple
 * List
 * String methods
 * Loops
